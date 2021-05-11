@@ -22,7 +22,7 @@ public class App{
         List<Contact> = new List<Contact>;
         System.out.println(data);
         for (String entry : data){
-            contacts.add
+            contacts.add(new Contact())
         }
     }
 
