@@ -1,3 +1,4 @@
+
 package src.contacts;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -25,7 +26,4 @@ public class App{
             contacts.add
         }
     }
-
-
-    // public static void displayContacts(List<Conta)
 }
