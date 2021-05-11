@@ -1,4 +1,4 @@
-package src.contacts;
+package contacts;
 
 import java.io.IOException;
 import java.nio.file.Files;

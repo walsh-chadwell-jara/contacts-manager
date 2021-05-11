@@ -1,9 +1,9 @@
-package src.contacts;
+package contacts;
 
 public class Contact {
     private String firstName;
     private String lastName;
-    private String telephoneNumber;
+    private String phoneNumber;
 
     
     public String getFirstName() {
@@ -14,8 +14,8 @@ public class Contact {
         return lastName;
     }
 
-    public String getTelephoneNumber() {
-        return telephoneNumber;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
     public void setFirstName(String firstName) {
@@ -26,8 +26,8 @@ public class Contact {
         this.lastName = lastName;
     }
 
-    public void setTelephoneNumber(String telephoneNumber) {
-        this.telephoneNumber = telephoneNumber;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
     
     public String getFullName(){
