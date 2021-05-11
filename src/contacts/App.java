@@ -15,14 +15,15 @@ public class App{
     }
     //PRINTS ONE CONTACT IN TERMINAL
     public static void displayContact(Contact contact){
-        System.out.printf("%s %s | %s%n", contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber());
+        System.out.printf("%-8s %-8s | %-16s%n \n", contact.getFirstName(), contact.getLastName(), contact.getPhoneNumber());
     }
     //PRINTS ALL OF THE CONTACTS IN THE TERMINAL
     public static void displayContacts(List<Contact> contacts){
-        System.out.println("Name | Phone Number\n------------");
+        System.out.println("      Name        | Phone Number\n---------------------------------");
         for (Contact contact : contacts){
             displayContact(contact);
         }
+
     }
     //GETS THE LIST OF CONTACTS FROM THE TEXT FILE
     public static List<Contact> getContacts() throws IOException{
