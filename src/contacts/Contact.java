@@ -1,4 +1,4 @@
-package contacts;
+package src.contacts;
 
 public class Contact {
     private String firstName;
@@ -13,10 +13,12 @@ public class Contact {
         this.firstName = firstName;
         this.lastName = lastName;
         this.telephoneNumber = telephoneNumber;
+
         System.out.println("Contact name: " + this.firstName + " " + this.lastName + "\nTelephone number: " + this.telephoneNumber + "\n");
     }
 
     public String getName()
+
 
 //    public String removeContact(){
 //        this.firstName
@@ -29,6 +31,8 @@ public class Contact {
         contact_2.setContactInfo("Karla", "Jara", "210-369-3333");
         Contact contact_3 = new Contact();
         contact_3.setContactInfo("Jake", "Chadwell", "210-4460-4040");
+
+
 
 
     }
