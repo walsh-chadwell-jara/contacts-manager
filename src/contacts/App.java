@@ -5,10 +5,8 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
+
 public class App{
     public static void main(String[] args) throws IOException{
         System.out.println(Files.exists(Paths.get("src/contacts/data/contacts.txt")));
@@ -95,7 +93,7 @@ public class App{
 
     //ADDS A NEW CONTACT TO THE LIST
     public static void addContact(String firstName, String lastName, String phoneNumber) throws IOException {
-        Files.write(Paths.get("src/contacts/data/contacts.txt"), Arrays.asList(firstName + " " + lastName + " " + phoneNumber), StandardOpenOption.APPEND);
+        Files.write(Paths.get("src/contacts/data/contacts.txt"), Collections.singletonList(firstName + " " + lastName + " " + phoneNumber), StandardOpenOption.APPEND);
         System.out.println("Contact successfully added!");
     }
 
