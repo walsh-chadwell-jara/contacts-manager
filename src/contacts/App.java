@@ -9,22 +9,19 @@ import java.util.*;
 
 public class App{
     public static void main(String[] args) throws IOException{
-        System.out.println(Files.exists(Paths.get("src/contacts/data/contacts.txt")));
         List<Contact> contacts = getContacts();
-        displayContacts(contacts);
         Scanner scanner = new Scanner(System.in);
         int userInput;
         do{
             options();
             userInput = scanner.nextInt();
+            scanner.nextLine();
             if(userInput == 1){
                 displayContacts(contacts);
             }else if(userInput == 2){
                 System.out.println("Enter First Name, Last Name, and Number: ");
-                String userFirstName = scanner.next();
-                String userLastName = scanner.next();
-                String userNumber = scanner.next();
-                addContact(userFirstName, userLastName, userNumber);
+                String userContact = scanner.nextLine();
+                addContact(userContact, contacts);
             }else if(userInput == 3){
                 System.out.println("Enter a full name: ");
                 String userFullName = scanner.nextLine();
@@ -66,7 +63,8 @@ public class App{
         List<Contact> contacts = new ArrayList<>();
         System.out.println(data);
         for (String entry : data){
-            contacts.add(new Contact());
+            String[] entrySplit = entry.split(" ");
+            contacts.add(new Contact(entrySplit[0], entrySplit[1], entrySplit[2]));
         }
         return contacts;
     }
@@ -92,8 +90,10 @@ public class App{
     }
 
     //ADDS A NEW CONTACT TO THE LIST
-    public static void addContact(String firstName, String lastName, String phoneNumber) throws IOException {
-        Files.write(Paths.get("src/contacts/data/contacts.txt"), Collections.singletonList(firstName + " " + lastName + " " + phoneNumber), StandardOpenOption.APPEND);
+    public static void addContact(String contact, List<Contact> contacts) throws IOException {
+        String[] contactSplit = contact.split(" ");
+        Contact userContact = new Contact(contactSplit[0], contactSplit[1], contactSplit[2]);
+        contacts.add(userContact);
         System.out.println("Contact successfully added!");
     }
 
@@ -107,6 +107,11 @@ public class App{
         System.out.println("4 - Delete an existing contact");
         System.out.println("5 - Exit");
         System.out.println("Enter an option (1, 2, 3, 4 or 5): ");
+    }
+
+    public static void rewrite(List<Contact> contacts){
+        Path dataFile = Paths.get("src/contacts/data/contacts.txt");
+        Files.write(dataFile, contacts);
     }
 
 }
