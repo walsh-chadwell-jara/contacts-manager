@@ -32,6 +32,7 @@ public class App{
                 deleteContact(userFullName, contacts);
             }else if(userInput == 5){
                 System.out.println("Have a nice day!");
+                rewrite(contacts);
                 break;
             }
             System.out.println("Continue? [y/n]");
@@ -40,6 +41,7 @@ public class App{
                 continue;
             }else{
                 System.out.println("Okay, have a good day!");
+                rewrite(contacts);
                 break;
             }
         }while(true);
@@ -109,9 +111,13 @@ public class App{
         System.out.println("Enter an option (1, 2, 3, 4 or 5): ");
     }
 
-    public static void rewrite(List<Contact> contacts){
+    public static void rewrite(List<Contact> contacts) throws IOException{
         Path dataFile = Paths.get("src/contacts/data/contacts.txt");
-        Files.write(dataFile, contacts);
+        List<String> contactStrings = new ArrayList<String>();
+        for (Contact contact : contacts){
+            contactStrings.add(contact.getFirstName() + " " + contact.getLastName() + " " + contact.getPhoneNumber());
+        }
+        Files.write(dataFile, contactStrings);
     }
 
 }
